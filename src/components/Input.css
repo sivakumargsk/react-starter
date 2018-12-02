@@ -1,0 +1,12 @@
+.form-group {
+  margin-bottom: 10px;
+}
+
+input {
+  height: 20px;
+  font-size: 1em;
+}
+
+.error {
+  color: #f90606;
+}
