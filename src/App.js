@@ -1,28 +1,43 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
 
-class App extends Component {
+class Counter extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
+
+  handleIncrement = () => {
+    // setState method takes object or function as first argument.
+
+    // eg: for Object
+    // this.setState({ count: this.state.count + 1 }); or
+
+    // eg: for function
+    this.setState(oldState => ({ count: oldState.count + 1 }));
+  };
+
+  handleDecrement = () => {
+    this.setState(oldState => ({ count: oldState.count - 1 }));
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <button onClick={this.handleDecrement}> - </button>
+        <span>{this.state.count}</span>
+        <button onClick={this.handleIncrement}> + </button>
       </div>
     );
   }
 }
+
+const App = () => (
+  <div className="container">
+    <h3>Counter App</h3>
+    <hr />
+    <Counter />
+  </div>
+);
 
 export default App;
