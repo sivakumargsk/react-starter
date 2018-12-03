@@ -2,31 +2,24 @@ import React from "react";
 import "./Input.css";
 
 const Input = props => {
-  const {
-    id,
-    type,
-    name,
-    value,
-    placeholder,
-    touched,
-    errorText,
-    onChange,
-    onBlur
-  } = props;
   return (
     <div className="form-group">
       <input
-        id={id}
-        type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChange}
-        onBlur={onBlur}
+        id={props.id}
+        type={props.type}
+        name={props.name}
+        value={props.value}
+        placeholder={props.placeholder}
+        onChange={props.onChange}
+        onBlur={props.onBlur}
       />
-      <div className="error">
-        {touched && errorText && <span>{errorText}</span>}
-      </div>
+      {
+        touched && errorText && (
+          <div>
+            <span className="error" >{errorText}</span>
+          </div>
+        )
+      }
     </div>
   );
 };
