@@ -14,9 +14,9 @@ const Input = props => {
         onBlur={props.onBlur}
       />
       {
-        touched && errorText && (
+        props.touched && props.errorText && (
           <div>
-            <span className="error" >{errorText}</span>
+            <span className="error" >{props.errorText}</span>
           </div>
         )
       }
